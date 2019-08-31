@@ -1,0 +1,22 @@
+.pagebox{
+	text-align: center;
+}
+.pagination{
+	
+}
+.pagination>li{
+	display: inline-block;
+	border: 1px solid #ccc;
+	width: 30px;
+	height: 25px;
+	line-height: 25px;
+}
+.pagination>li.disabled{
+	cursor: not-allowed;
+}
+.pagination>li.active{
+	background: #96CEB4;
+}
+.pagination>li>a{
+	text-decoration: none;
+}

@@ -1,0 +1,78 @@
+.ab_box {
+	border-top: #a6c3bd 1px solid;
+	padding: 20px 0;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.8)
+}
+/*左边盒子*/
+.leftbox {
+	width: 70%;
+	float: left;
+	overflow: hidden;
+}
+.newsview {
+	padding: 20px
+}
+
+.news_infos {
+	line-height: 24px;
+	text-align: justify;
+}
+/*右边盒子*/
+.rightbox {
+	width: 28%;
+	float: right;
+	overflow: hidden;
+	margin-right: 20px
+}
+
+.aboutme {
+	overflow: hidden;
+	background: #fff;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.ab_con {
+	line-height: 30px;
+	padding: 10px;
+}
+
+.ab_con p {
+	background: #f6f6f6;
+	margin: 5px 0;
+	padding-left: 10px;
+	border-radius: 5px;
+	text-shadow: rgba(255, 255, 255, 0.3) 0px 1px 0px;
+}
+
+.avatar {
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	border-radius: 50px;
+	margin: 10px auto 0;
+}
+
+.avatar img {
+	width: 100px;
+	height: 100px
+}
+.aboutblog {
+	overflow: hidden;
+	background: #fff;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+/*wx*/
+.weixin {
+	background: #FFF;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.weixin img {
+	width: 100%;
+	height: auto
+}
