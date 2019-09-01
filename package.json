@@ -8,7 +8,7 @@
     "build:client": "vue-cli-service build",
     "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build --mode server",
     "build:win": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json",
-    "dev:serve": "cross-env WEBPACK_TARGET=node node ./server/ssr.js",
+    "dev:serve": "cross-env WEBPACK_TARGET=node node ./dev/ssr.js",
     "dev": "concurrently \"npm run serve\" \"npm run dev:serve\" "
   },
   "dependencies": {
@@ -34,7 +34,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "less": "^3.0.4",
+    "less": "^2.7.3",
     "less-loader": "^4.1.0",
     "lodash.merge": "^4.6.2",
     "lru-cache": "^5.1.1",
