@@ -12,8 +12,8 @@
       </ul>
     </nav>
     <nav class="m-nav">
-      <h2><span class="nav-icon"></span></h2>
-      <ul>
+      <h2 :class="{ 'open': open }" @click="handleSwitchOpen"><span class="nav-icon"></span></h2>
+      <ul v-show="showMenu">
         <li><a href="index.html">首页</a></li>
         <li><a href="essay.html">随笔</a></li>
         <li><a href="source.html">资源导航</a></li>
@@ -28,12 +28,29 @@
 
 <script>
 export default {
+  data () {
+    return {
+      open: '',
+      showMenu: false
+    }
+  },
+  methods: {
+    handleSwitchOpen () {
+      this.open = this.open ? '' : 'open'
+      if (this.open === 'open') {
+        this.showMenu = true
+      } else {
+        this.showMenu = false
+      }
+    }
+  }
 }
 </script>
 
 <style lang="less">
 header {
   position: fixed;
+  top: 0;
   width: 100%;
   background: #299982;
   box-shadow: 0px 1px 5px #165246;
@@ -51,7 +68,7 @@ header {
     line-height: 46px;
     text-align: right;
     color: #999;
-    background: url('../assets/images/logo.png') no-repeat left 10px top 13px;
+    background: url('../assets/images/logo.png') no-repeat left 10px top 10px;
     li {
       display: inline;
       font-size: 16px;
@@ -65,22 +82,19 @@ header {
 
 .m-nav {
   display: none;
-  width: 100%;
+  overflow: hidden;
   h2 {
-    width: 100%;
+    float: right;
     height: 52px;
     padding-left: 10px;
     line-height: 52px;
-    text-align: right;
     font-size: 18px;
     color: #fff;
-    &.open {
-      background: rgba(1, 1, 1, 0.8);
-    }
+    cursor: pointer;
   }
   ul {
-    display: none;
-    padding-bottom: 40px;
+    padding-top: 52px;
+    padding: 52px 0 30px 0;
     background: rgba(1, 1, 1, 0.8);
     li {
       display: block;
@@ -100,11 +114,13 @@ header {
     width: 30px;
     height: 5px;
     margin-right: 15px;
+    vertical-align: middle;
     background-color: #FFFFFF;
     &::before,
     &::after {
       content: '';
       position: absolute;
+      left: 0;
       width: 30px;
       height: 5px;
       background: #FFFFFF;
@@ -118,7 +134,7 @@ header {
     }
   }
   h2.open .nav-icon {
-    background: rgba(1, 1, 1, 0.8); /* 使用背景色隐藏中间的红线 */
+    background: rgba(1, 1, 1, 0); /* 使用背景色隐藏中间的红线 */
     &::before {
       margin-top: 0;
       transform: rotate(45deg);
@@ -130,6 +146,11 @@ header {
   }
 }
 @media screen and (min-width: 768px) and (max-width:1199px) {
+  .pc-nav {
+    ul {
+      width: 100%;
+    }
+  }
 }
 @media screen and (max-width:767px ) {
   .pc-nav {
