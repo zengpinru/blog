@@ -6,9 +6,7 @@
     </h3>
     <div class="blog-info">
       <a href class="blog-pic"><img src="../assets/images/t01.jpg" /></a>
-      <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。
-        帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。
-      </p>
+      <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
     </div>
     <div class="autor">
       <span class="time">2018-03-26</span>
@@ -59,11 +57,11 @@
   }
 }
 .blog-info {
-  display: flex;
   margin-bottom: 15px;
+  overflow: hidden;
   a {
-    flex: 0 1 auto;
-    min-width: 30%;
+    float: left;
+    width: 30%;
     margin-right: 20px;
     img {
       width: 100%;
@@ -72,7 +70,6 @@
     }
   }
   p {
-    flex: 1 1 auto;
     line-height: 24px;
     color: #888;
   }

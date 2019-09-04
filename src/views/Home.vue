@@ -1,6 +1,6 @@
 <template>
   <article>
-    <div class="banner"></div>
+    <div class="banner"><b-swiper/></div>
     <div class="container">
       <div class="new-blog">
         <b-title title="最新文章"/>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import BSwiper from '../components/Swiper'
 import BTitle from '../components/Title'
 import BBlog from '../components/Blog'
 import BSideBar from '../components/SideBar'
@@ -37,7 +38,8 @@ export default {
   components: {
     BTitle,
     BBlog,
-    BSideBar
+    BSideBar,
+    BSwiper
   }
 }
 </script>
