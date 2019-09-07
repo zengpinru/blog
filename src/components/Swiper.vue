@@ -1,57 +1,57 @@
 <template>
-  <swiper :options="swiperOption" class="swiper-wrap" ref="mySwiper">
-    <swiper-slide>
-      <img src="../assets/images/banner01.jpg"/>
-    </swiper-slide>
-    <swiper-slide>
-      <img src="../assets/images/banner02.jpg"/>
-    </swiper-slide>
-    <swiper-slide>
-      <img src="../assets/images/banner02.jpg"/>
-    </swiper-slide>
-    <!-- 常见的小圆点 -->
-    <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="../assets/images/banner01.jpg"></div>
+      <div class="swiper-slide"><img src="../assets/images/banner02.jpg"></div>
+      <div class="swiper-slide"><img src="../assets/images/banner03.jpg"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+  </div>
 </template>
 
 <script>
-if (typeof window !== 'undefined') {
-  const { swiper, swiperSlide } = require('vue-awesome-swiper')
-} else {
-  
-}
-require('swiper/dist/css/swiper.css')
+import Swiper from 'swiper'
+import 'swiper/dist/css/swiper.min.css'
 export default {
-  data () {
-    return {
-      swiperOption: {
-        loop: true,
-        initialSlide: 0,
-        autoplay: {
-          delay: 1500,
-          stopOnLastSlide: false,
-          disableOnInteraction: false
-        },
-        speed: 800,
-        direction: 'horizontal',
-        grabCursor: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-          type: 'bullets'
-        }
+  mounted () {
+    /* eslint-disable no-new */
+    new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      autoplay: {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: true
+      },
+      pagination: {
+        el: '.swiper-pagination'
       }
-    }
-  },
-  components: {
-    swiper,
-    swiperSlide
+    })
   }
 }
 </script>
 
 <style lang="less">
-.swiper-wrap {
-  height: 100%;
+.swiper-container {
+  width: 100%;
+  .swiper-wrapper,
+  .swiper-slide,
+  img {
+    width: 100%;
+    vertical-align: top;
+  }
+}
+@media screen and (max-width:767px ) {
+  .swiper-container {
+    .swiper-button-prev,
+    .swiper-button-next {
+      background-size: 15px 44px;
+    }
+  }
 }
 </style>

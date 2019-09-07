@@ -47,7 +47,6 @@ export default {
 <style lang="less">
 // 轮播图
 .banner {
-  height: 250px;
   background: #ccc;
 }
 // 内容盒子
