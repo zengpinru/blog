@@ -11,7 +11,14 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    port: 8080
+    port: 8080,
+    proxy: {
+      '/api': {
+        ws: false,
+        target: 'http://127.0.0.1:3001',
+        changeOrigin: true
+      }
+    }
   },
   css: {
     extract: process.env.NODE_ENV === 'production'

@@ -7,6 +7,11 @@ export default [
     component: Home
   },
   {
+    path: '/article/:id',
+    name: 'article',
+    component: () => import('../views/article.vue')
+  },
+  {
     path: '*',
     component: () => import('../views/error/404.vue')
   }
