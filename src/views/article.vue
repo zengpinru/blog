@@ -1,27 +1,49 @@
 <template>
   <article>
     <div class="article">
-      <h1 class="article-title">作为一个设计师,如果遭到质疑你是否能恪守自己的原则?</h1>
+      <h1 class="article-title">{{ article.title }}</h1>
       <div class="article-info">
-        <span class="author">zengpinru</span>
-        <span class="time">2018-03-18</span>
-        <span class="view-num">共<b>309</b>人围观</span>
+        <span class="author">{{ article.author }}</span>
+        <span class="time">{{ time }}</span>
+        <span class="view-num">共<b>{{ article.view_num }}</b>人围观</span>
       </div>
-      <div class="article-des"><strong>简介</strong>曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的指责是“垃圾”作品。</div>
-      <div class="markdown-body">{{ article.html }}</div>
+      <div class="article-des"><strong>简介</strong>{{ article.des }}</div>
+      <div class="markdown-body" v-html="html"></div>
     </div>
   </article>
 </template>
 
 <script>
+import config from '../config'
+import { formatDate } from '../libs/util'
 export default {
-  asyncData ({ store, route }) {
-    const id = route.params.id
-    store.dispatch('getArticleById', id)
+  async asyncData ({ store, route }) {
+    try {
+      const id = route.params.id
+      await store.dispatch('getArticleById', id)
+    } catch (err) {
+      console.log(err.msg)
+    }
+  },
+  metaInfo () {
+    const title = '文章详情'
+    return {
+      title,
+      meta: [{ content: title }]
+    }
   },
   data () {
     return {
       article: this.$store.state.article
+    }
+  },
+  computed: {
+    html () {
+      let patt = new RegExp('{config.IMG_BASE_URL}', 'g')
+      return this.article.html.replace(patt, config.IMG_BASE_URL)
+    },
+    time () {
+      return formatDate(this.article.update_time)
     }
   }
 }

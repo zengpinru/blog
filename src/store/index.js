@@ -10,16 +10,23 @@ export function createStore () {
       article: {}
     },
     mutations: {
-      setArticle ({ state }, data) {
+      setArticle (state, data) {
         state.article = data
       }
     },
     actions: {
       getArticleById ({ commit }, id) {
-        getArticleById(id).then(res => {
-          if (res.code === 0) {
-            commit('setArticle', res.data)
-          }
+        return new Promise((resolve, reject) => {
+          getArticleById(id).then(res => {
+            if (res.code === 0) {
+              commit('setArticle', res.data)
+              resolve()
+            } else {
+              reject(new Error(res.msg))
+            }
+          }).catch(err => {
+            reject(err)
+          })
         })
       }
     }
