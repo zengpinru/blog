@@ -12,7 +12,7 @@
     "dev": "concurrently \"npm run serve\" \"npm run dev:serve\" "
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "core-js": "^2.6.5",
     "koa": "^2.8.1",
     "koa-mount": "^4.0.0",
